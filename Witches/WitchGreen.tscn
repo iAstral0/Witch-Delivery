@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://be5q7b7vfc71s"]
+
+[ext_resource type="Script" path="res://Witches/Witch.gd" id="1_jtpb0"]
+[ext_resource type="Texture2D" uid="uid://djbj0bc4d0s81" path="res://Assets/Witches/WitchGreen.png" id="2_auwsr"]
+
+[sub_resource type="Animation" id="Animation_ar8gj"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_j0stt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_80d7s"]
+_data = {
+"Idle": SubResource("Animation_ar8gj"),
+"RESET": SubResource("Animation_j0stt")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xta56"]
+size = Vector2(26, 21)
+
+[node name="WitchGreen" type="Node2D"]
+script = ExtResource("1_jtpb0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_auwsr")
+flip_h = true
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_80d7s")
+}
+
+[node name="Area" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_xta56")
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]

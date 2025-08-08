@@ -1,0 +1,227 @@
+[gd_scene load_steps=13 format=3 uid="uid://bu7flsjpdupc0"]
+
+[ext_resource type="Script" path="res://UI/MainMenu.gd" id="1_xayix"]
+[ext_resource type="Shader" path="res://UI/MainMenu.gdshader" id="2_q0lqu"]
+[ext_resource type="Texture2D" uid="uid://c6d3jy14d42ls" path="res://Assets/UI/BG.png" id="3_1vnwh"]
+[ext_resource type="PackedScene" uid="uid://ifyifunt7tip" path="res://UI/Button.tscn" id="3_q1jxc"]
+[ext_resource type="FontFile" uid="uid://c1o7swtx5t8bx" path="res://Assets/Fonts/BoldPixels1.4.ttf" id="4_o20fj"]
+[ext_resource type="AudioStream" uid="uid://7vlnerce4xwp" path="res://Assets/Music/WitchTheme.mp3" id="7_qgwi4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_klrqw"]
+shader = ExtResource("2_q0lqu")
+shader_parameter/speed = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmy6k"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywb5k"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xhxmr"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5gj1"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4u18f"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="MainMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xayix")
+
+[node name="Pattern" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_klrqw")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -240.0
+offset_bottom = -135.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("3_1vnwh")
+stretch_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 114.0
+grow_vertical = 0
+theme_override_constants/margin_left = 4
+
+[node name="Creator" type="Label" parent="MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("4_o20fj")
+text = "Made by iAstral0"
+vertical_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -73.5
+offset_top = -26.0
+offset_right = 73.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 25
+
+[node name="Highscore" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_o20fj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vmy6k")
+text = "Highscore
+$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+offset_right = 480.0
+offset_bottom = 270.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = -10
+theme_override_constants/margin_top = -10
+theme_override_constants/margin_right = -10
+theme_override_constants/margin_bottom = -10
+
+[node name="Panel" type="Panel" parent="CenterContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywb5k")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_o20fj")
+theme_override_font_sizes/font_size = 48
+text = "Witch Delivery!"
+
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_right = 80
+
+[node name="Start" parent="CenterContainer/MarginContainer/VBoxContainer/MarginContainer2" instance=ExtResource("3_q1jxc")]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_xhxmr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_x5gj1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4u18f")
+
+[node name="MarginContainer3" type="MarginContainer" parent="CenterContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_right = 80
+
+[node name="HowToPlay" parent="CenterContainer/MarginContainer/VBoxContainer/MarginContainer3" instance=ExtResource("3_q1jxc")]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_xhxmr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_x5gj1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4u18f")
+text = "How to play"
+
+[node name="MarginContainer4" type="MarginContainer" parent="CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_right = 80
+
+[node name="Quit" parent="CenterContainer/MarginContainer/VBoxContainer/MarginContainer4" instance=ExtResource("3_q1jxc")]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_xhxmr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_x5gj1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4u18f")
+text = "Quit?"
+
+[node name="Music" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WitchTheme" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("7_qgwi4")
+volume_db = -23.0
+autoplay = true
+
+[connection signal="pressed" from="CenterContainer/MarginContainer/VBoxContainer/MarginContainer2/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CenterContainer/MarginContainer/VBoxContainer/MarginContainer3/HowToPlay" to="." method="_on_how_to_play_pressed"]
+[connection signal="pressed" from="CenterContainer/MarginContainer/VBoxContainer/MarginContainer4/Quit" to="." method="_on_quit_pressed"]
